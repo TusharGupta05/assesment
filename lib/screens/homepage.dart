@@ -422,7 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.fromLTRB(30, 30, 30, 10),
               child: Column(
                 children: [
                   Text(
@@ -474,7 +474,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.fromLTRB(12, 12, 12, 5),
               child: Container(
                 height: 30,
                   padding:
@@ -504,7 +504,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -514,10 +514,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         tname.length,
                         (i) => Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+                              padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                               child: Text(
                                 tname[i],
-                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10)
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)
                               ),
                             )),
                   ),
@@ -525,10 +525,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         taction.length,
                         (i) => Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 10, 40, 10),
+                              padding: const EdgeInsets.fromLTRB(10, 5, 40, 5),
                               child: Text(taction[i],
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 10)),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
                             )),
                   ),
                   Column(
@@ -536,11 +536,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         tvalue.length,
                         (i) => Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 15, 10),
+                            padding: const EdgeInsets.fromLTRB(0, 5, 15, 5),
                             child: Text(
                               tvalue[i],
                               style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: tvalue[i].compareTo('Sell') == 0
                                       ? Color6
