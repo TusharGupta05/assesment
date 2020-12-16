@@ -64,8 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      // extendBodyBehindAppBar: true,
-      // extendBody: true,
       appBar: AppBar(
         brightness: Brightness.light,
         leading: IconButton(
@@ -81,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
             color: Color4,
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 18,
           ),
         ),
         bottomOpacity: 0.0,
@@ -155,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0, top: 0),
                   child: Container(
-                    height: 325,
+                    height: 350,
                     child: Row(
                       children: [
                         StepProgressIndicator(
@@ -174,20 +172,19 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: const EdgeInsets.all(15.0),
                             child: Align(
                               child: SpeechBubble(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 5),
+                                padding: EdgeInsets.fromLTRB(12, 5, 12, 6),
                                 child: Text(
                                   "Neutral",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 14),
                                 ),
                                 borderRadius: 5,
                                 nipLocation: NipLocation.LEFT,
                                 nipHeight: 10,
                                 height: 30,
-                                width: 80,
+                                width: 90,
                                 color: Color10,
                               ),
                             ),
@@ -200,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.only(right: 18.0, top: 0),
                   child: Container(
-                    height: 325,
+                    height: 350,
                     child: StepProgressIndicator(
                       padding: 3,
                       customSize: (i, b) => 55,
@@ -299,60 +296,58 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text("Sell", style: style2)
               ],
             ),
+            SizedBox(height: 15,),
             Container(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 125, vertical: 10),
-                child: Container(
-                  height: 40,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                  ),
-                  decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.045),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: DropdownButton(
-                    icon: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.black12.withOpacity(0.5),
-                    ),
-                    focusColor: Color1,
-                    iconSize: 15,
-                    style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 12,
-                        fontFamily: 'IBM Plex Sans'),
-                    elevation: 0,
-                    isExpanded: true,
-                    value: selected1,
-                    underline: Container(
-                      height: 0,
-                    ),
-                    items: List<DropdownMenuItem>.generate(mav.length, (i) {
-                      return DropdownMenuItem(
-                        value: mav[i],
-                        child: Text(mav[i]),
-                        onTap: () {
-                          setState(() {
-                            selected1 = mav[i];
-                          });
-                        },
-                      );
-                    }),
-                    onChanged: (val) {
+              height: 40,
+              width: 180,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 18,
+              ),
+              decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.045),
+                  borderRadius: BorderRadius.circular(5)),
+              child: DropdownButton(
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.black12.withOpacity(0.5),
+                ),
+                focusColor: Color1,
+                iconSize: 15,
+                style: TextStyle(
+                    color: Colors.grey[500],
+                    fontSize: 12,
+                    fontFamily: 'IBM Plex Sans'),
+                elevation: 0,
+                isExpanded: true,
+                value: selected1,
+                underline: Container(
+                  height: 0,
+                ),
+                items: List<DropdownMenuItem>.generate(mav.length, (i) {
+                  return DropdownMenuItem(
+                    value: mav[i],
+                    child: Text(mav[i]),
+                    onTap: () {
                       setState(() {
-                        selected1 = val;
+                        selected1 = mav[i];
                       });
                     },
-                  ),
-                ),
+                  );
+                }),
+                onChanged: (val) {
+                  setState(() {
+                    selected1 = val;
+                  });
+                },
               ),
             ),
+            SizedBox(height: 5,),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.fromLTRB(15.0, 15,15,5),
               child: Container(
+                height: 30,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.045),
                       borderRadius: BorderRadius.circular(5)),
@@ -361,17 +356,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text('TITLE',
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                       Text('    VALUE',
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                       Text('TYPE',
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                     ],
@@ -387,7 +382,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                               child: Text(
                                 etitle[i],
                                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -399,8 +394,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 0),
+                                                            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+
                               child: Text(evalue[i],
                                   style:
                                       TextStyle(fontWeight: FontWeight.bold)),
@@ -411,7 +406,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                            padding: const EdgeInsets.all(10.0),
+                                                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+
                             child: Text(
                               etype[i],
                               style: TextStyle(
@@ -480,8 +476,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
+                height: 30,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.045),
                       borderRadius: BorderRadius.circular(5)),
@@ -490,17 +487,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text('NAME',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                       Text('ACTION',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                       Text('VALUE',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 10,
                               color: Colors.black.withOpacity(0.5),
                               fontWeight: FontWeight.bold)),
                     ],
@@ -520,7 +517,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
                               child: Text(
                                 tname[i],
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10)
                               ),
                             )),
                   ),
@@ -531,7 +528,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               padding: const EdgeInsets.fromLTRB(0, 10, 40, 10),
                               child: Text(taction[i],
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 10)),
                             )),
                   ),
                   Column(
@@ -543,7 +540,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text(
                               tvalue[i],
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.bold,
                                   color: tvalue[i].compareTo('Sell') == 0
                                       ? Color6
@@ -572,7 +569,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 20,
                   ),
                   Container(
-                    height: 40,
+                    height: 35,
                     width: 150,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
@@ -598,7 +595,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       items: List<DropdownMenuItem>.generate(dd3.length, (i) {
                         return DropdownMenuItem(
                           value: dd3[i],
-                          child: Text(dd3[i]),
+                          child: Text(dd3[i],),
                           onTap: () {
                             setState(() {
                               selected2 = dd3[i];
@@ -616,6 +613,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            SizedBox(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -624,12 +622,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: List<Widget>.generate(
                       cl1.length,
                       (i) => Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                            padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
                             child: Text(
                               cl1[i],
                               style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black.withOpacity(0.5)),
+                                  fontSize: 13,
+                                  color: Colors.black.withOpacity(0.4)),
                             ),
                           )),
                 ),
@@ -638,11 +636,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: List<Widget>.generate(
                       cl2.length,
                       (i) => Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 20, 10),
+                            padding: const EdgeInsets.fromLTRB(0, 5, 20, 5),
                             child: Text(
                               cl2[i],
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 13,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
