@@ -1,4 +1,5 @@
 import 'package:assesment/uinecessary/colorsandstyles.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:speech_bubble/speech_bubble.dart';
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     evalue = List<String>.generate(5, (index) => '465.28');
     etype = ['SELL', 'BUY', 'BUY', 'SELL', 'BUY'];
     tname = [
-      'RSI(14)',
+          'RSI(14)',
       'STOCH(9,6)',
       'STOCHRSI(14)',
       'MACD(12,26)',
@@ -61,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -296,7 +296,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text("Sell", style: style2)
               ],
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               height: 40,
               width: 180,
@@ -341,13 +343,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15.0, 15,15,5),
+              padding: const EdgeInsets.fromLTRB(15.0, 15, 15, 5),
               child: Container(
-                height: 30,
-                  padding:
-                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  height: 30,
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.045),
                       borderRadius: BorderRadius.circular(5)),
@@ -382,7 +385,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
                               child: Text(
                                 etitle[i],
                                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -394,8 +398,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                                                            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
                               child: Text(evalue[i],
                                   style:
                                       TextStyle(fontWeight: FontWeight.bold)),
@@ -406,8 +410,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: List<Widget>.generate(
                         etitle.length,
                         (i) => Padding(
-                                                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             child: Text(
                               etype[i],
                               style: TextStyle(
@@ -474,32 +478,47 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(12, 12, 12, 5),
+              padding: const EdgeInsets.fromLTRB(10, 12, 10, 5),
               child: Container(
-                height: 30,
+                  height: 30,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.045),
                       borderRadius: BorderRadius.circular(5)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('NAME',
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.black.withOpacity(0.5),
-                              fontWeight: FontWeight.bold)),
-                      Text('ACTION',
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.black.withOpacity(0.5),
-                              fontWeight: FontWeight.bold)),
-                      Text('VALUE',
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.black.withOpacity(0.5),
-                              fontWeight: FontWeight.bold)),
+                      SizedBox(
+                        width: (MediaQuery.of(context).size.width-40)/3,
+                        child: Text('NAME',
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.black.withOpacity(0.5),
+                                fontWeight: FontWeight.bold)),
+                      ),
+                      SizedBox(
+                        width: (MediaQuery.of(context).size.width-40)/3,
+                        child: Align(
+                          alignment: Alignment.center,
+                                                  child: Text('ACTION',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black.withOpacity(0.5),
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                      SizedBox(
+                        width: (MediaQuery.of(context).size.width-40)/3,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                            child: Text('VALUE',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black.withOpacity(0.5),
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ),
                     ],
                   )),
             ),
@@ -515,40 +534,55 @@ class _MyHomePageState extends State<MyHomePage> {
                         tname.length,
                         (i) => Padding(
                               padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                              child: Text(
-                                tname[i],
-                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)
+                              child: SizedBox(
+                                width: (MediaQuery.of(context).size.width-40)/3,
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Text(tname[i],
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12)),
+                                ),
+                              ),
+                            )),
+                  ),
+                  Column(
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: List<Widget>.generate(
+                        taction.length,
+                        (i) => Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                              child: SizedBox(
+                                width: (MediaQuery.of(context).size.width-40)/3,
+                                child: Text(taction[i],
+                                textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12)),
                               ),
                             )),
                   ),
                   Column(
                     children: List<Widget>.generate(
-                        taction.length,
-                        (i) => Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 5, 40, 5),
-                              child: Text(taction[i],
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
-                            )),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: List<Widget>.generate(
                         tvalue.length,
                         (i) => Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 5, 15, 5),
-                            child: Text(
-                              tvalue[i],
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: tvalue[i].compareTo('Sell') == 0
-                                      ? Color6
-                                      : tvalue[i].compareTo('Buy') == 0
-                                          ? Color7
-                                          : tvalue[i].compareTo('Neutral') == 0
-                                              ? Colors.black.withOpacity(0.5)
-                                              : Colors.black),
+                            padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
+                            child: SizedBox(
+                                width: (MediaQuery.of(context).size.width-40)/3,
+                              child: Text(
+                                tvalue[i],
+                                textAlign: TextAlign.right,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: tvalue[i].compareTo('Sell') == 0
+                                        ? Color6
+                                        : tvalue[i].compareTo('Buy') == 0
+                                            ? Color7
+                                            : tvalue[i].compareTo('Neutral') == 0
+                                                ? Colors.black.withOpacity(0.5)
+                                                : Colors.black),
+                              ),
                             ))),
                   )
                 ],
@@ -595,7 +629,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       items: List<DropdownMenuItem>.generate(dd3.length, (i) {
                         return DropdownMenuItem(
                           value: dd3[i],
-                          child: Text(dd3[i],),
+                          child: Text(
+                            dd3[i],
+                          ),
                           onTap: () {
                             setState(() {
                               selected2 = dd3[i];
@@ -613,7 +649,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
